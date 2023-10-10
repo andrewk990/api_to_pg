@@ -1,4 +1,3 @@
-# https://random-data-api.com/api/cannabis/random_cannabis?size=1000
 # TODO: Обновление при повторяющихся id вместо добавления
 
 import requests
@@ -44,4 +43,3 @@ try:
 
 except Exception as error:
     print(error)
-    
