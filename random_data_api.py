@@ -1,8 +1,9 @@
-# https://random-data-api.com/api/cannabis/random_cannabis?size=10
+# https://random-data-api.com/api/cannabis/random_cannabis?size=1000
+# TODO: Обновление при повторяющихся id вместо добавления
+# TODO: Вынести крэды и добавить в гитигнор
 
 import requests
 import pandas as pd
-import datetime
 import sqlalchemy as sa
 from datetime import datetime
 
@@ -12,9 +13,11 @@ get_tablename = sa.inspect(engine)
 current_datetime = datetime.now()
 table_name = 'random_cannabis'
 
+
 try:
 
-    api_responce = requests.get(url='https://random-data-api.com/api/cannabis/random_cannabis?size=10')
+    # max result 100 items
+    api_responce = requests.get(url='https://random-data-api.com/api/cannabis/random_cannabis?size=100')
     datafr = pd.DataFrame(api_responce.json())
     datafr['date_add'] = current_datetime
 
