@@ -1,14 +1,14 @@
 # https://random-data-api.com/api/cannabis/random_cannabis?size=1000
 # TODO: Обновление при повторяющихся id вместо добавления
-# TODO: Вынести крэды и добавить в гитигнор
 
 import requests
 import pandas as pd
 import sqlalchemy as sa
+import creds
 from datetime import datetime
 
 
-engine = sa.create_engine('postgresql://postgres:123456@localhost:5432/postgres')
+engine = creds.get_connection()
 get_tablename = sa.inspect(engine)
 current_datetime = datetime.now()
 table_name = 'random_cannabis'
@@ -44,3 +44,4 @@ try:
 
 except Exception as error:
     print(error)
+    
