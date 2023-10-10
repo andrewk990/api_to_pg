@@ -1,4 +1,4 @@
-# TODO: Обновление при повторяющихся id вместо добавления
+# TODO: Обновление при повторяющихся id вместо добавления - реализовано в random_data_api_v2.py
 
 import requests
 import pandas as pd
