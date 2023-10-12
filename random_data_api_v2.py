@@ -36,7 +36,7 @@ create_query = sa.text(
             CREATE TABLE IF NOT EXISTS public.random_cannabis as (
                 select distinct on (id) *
                     from public.random_cannabis_tmp
-                order by date_actual;
+                order by id, date_actual;
 
             ANALYZE public.random_cannabis;
 
@@ -60,11 +60,8 @@ try:
                     , index=False
                     , index_label=None
                     )
-    con.close()
 
     print("tmp table is success created!")
-
-    con = engine.connect()
 
     if target_table in get_tablename.get_table_names():
 
